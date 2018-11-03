@@ -1,6 +1,5 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +16,6 @@ public class Planificacion {
 	private Integer numeroDeVuelo;
 	private Integer fechaYHorarioDeInicio;
 	private Integer fechaYHorarioDeArribo;
-	private ArrayList<String> Lista= new ArrayList<String>();
 	@ManyToOne
 	private Vuelo idVuelo;
 
@@ -53,14 +51,6 @@ public class Planificacion {
 
 	public void setFechaYHorarioDeArribo(Integer fechaYHorarioDeArribo) {
 		this.fechaYHorarioDeArribo = fechaYHorarioDeArribo;
-	}
-
-	public ArrayList<String> getLista() {
-		return Lista;
-	}
-
-	public void setLista(ArrayList<String> lista) {
-		Lista = lista;
 	}
 
 	public Vuelo getIdVuelo() {
