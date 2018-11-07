@@ -14,7 +14,7 @@
 					<hr class="colorgraph"><br>
 					<input name="numeroPlanificacion"  type="number" class="form-control" />
 					<input name="nombreTripulante" type="text" class="form-control"/>     		  
-					
+
 					<button class="btn btn-lg btn-primary btn-block" Type="Submit"/>Cargar</button>
 				</form>
 

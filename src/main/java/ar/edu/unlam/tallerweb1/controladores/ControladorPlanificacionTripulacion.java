@@ -37,6 +37,4 @@ public class ControladorPlanificacionTripulacion {
 		modelo.put("PT", PT);
 		return new ModelAndView("tripulanteCargado",modelo);
 	}
-	
-	
 }
