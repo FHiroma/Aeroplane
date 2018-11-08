@@ -37,7 +37,6 @@ public class Test extends SpringTest {
 		
 		planning.setFechaYHorarioDeInicio(316);
 		planning.setFechaYHorarioDeArribo(311);
-		planning.setLista(miLista);
 		planning.setNumeroDeVuelo(421);
 		sesion.getCurrentSession().save(planning);
 		

@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Planificacion;
 import ar.edu.unlam.tallerweb1.modelo.PlanificacionTripulante;
+import ar.edu.unlam.tallerweb1.modelo.Tripulacion;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPlanificacion;
 
 @Controller
@@ -41,6 +43,15 @@ private ServicioPlanificacion servicioPlanificacion;
 		
 		return new ModelAndView("consultarPlanificaciones",modelo);
 	}
+	
+	@RequestMapping("/crear-planificacion")
+	public ModelAndView ModelMap() {
+		
+	ModelMap modelo = new ModelMap();
+	
+	return new ModelAndView("formularioCreaPlanificacion", modelo);
+	}
+	
 	
 
 }

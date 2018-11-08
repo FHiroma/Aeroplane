@@ -12,19 +12,21 @@ public class Vuelo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idVuelo;
 	private Integer numeroDeVuelo;
+	
 	public Long getIdVuelo() {
 		return idVuelo;
 	}
+	
 	public void setIdVuelo(Long idVuelo) {
 		this.idVuelo = idVuelo;
 	}
+	
 	public Integer getNumeroDeVuelo() {
 		return numeroDeVuelo;
 	}
+	
 	public void setNumeroDeVuelo(Integer numeroDeVuelo) {
 		this.numeroDeVuelo = numeroDeVuelo;
 	}
-	
-	
 
 }

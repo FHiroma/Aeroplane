@@ -15,9 +15,16 @@
     	<h1>${items.fechaYHorarioDeInicio}</h1><br>
     	<h1>${items.fechaYHorarioDeArribo}</h1><br>
     	<h1>${items.numeroDeVuelo}</h1><br>
-
+		
+		
+		
+		<href='consultarTripulacionDeVuelo?idPlanificacion=".${items.idPlanificacion}."'/>
+		
+		
     	
 	</c:forEach>
+	
+	
 	
 
 </body>
