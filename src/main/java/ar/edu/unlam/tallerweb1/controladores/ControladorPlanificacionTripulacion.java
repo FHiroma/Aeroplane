@@ -29,7 +29,9 @@ public class ControladorPlanificacionTripulacion {
 	
 	@RequestMapping("/formularioCarga")
 	public ModelAndView cargarTripulante( ){
-		ModelMap modelo= new ModelMap();	
+		ModelMap modelo= new ModelMap();
+		List<Tripulacion> lista = servicioTripulacion.consultarTripulaciones();
+		modelo.put("listaTripulante", lista);
 		return new ModelAndView("formularioCarga",modelo);
 	}
 
@@ -48,7 +50,6 @@ public class ControladorPlanificacionTripulacion {
 	public ModelAndView agregar(@RequestParam ("idPlanificacion") long idPlanificacion ){
 		ModelMap modelo= new ModelMap();
 		List<Tripulacion> lista = servicioTripulacion.consultarTripulaciones();
-		
 		modelo.put("lista", lista);
 		
 		
