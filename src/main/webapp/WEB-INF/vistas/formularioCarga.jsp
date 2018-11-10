@@ -9,14 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="tripulanteCargado" method="GET">
-			    	<h3 class="form-signin-heading">Tripulante y Vuelo</h3>
-					<hr class="colorgraph"><br>
-					<input name="numeroPlanificacion"  type="number" class="form-control" />
-					<input name="nombreTripulante" type="text" class="form-control"/>     		  
-
-					<button class="btn btn-lg btn-primary btn-block" Type="Submit"/>Cargar</button>
-				</form>
+<h3>muri gato!!</h3>
 
 </body>
 </html>

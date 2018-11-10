@@ -1,4 +1,5 @@
 package ar.edu.unlam.tallerweb1.controladores;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,25 +13,45 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Planificacion;
 import ar.edu.unlam.tallerweb1.modelo.PlanificacionTripulante;
+import ar.edu.unlam.tallerweb1.modelo.Tripulacion;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPlanificacion;
 
 @Controller
 public class ControladorPlanificacion {
 @Inject
 private ServicioPlanificacion servicioPlanificacion;	
+	
 	@RequestMapping("/plan")
 	public ModelAndView plan() {
+		
 	ModelMap modelo = new ModelMap();
+	
 	return new ModelAndView("listaPlanificaciones", modelo);
 	}
 	
+	
 	@RequestMapping("/consultarPlanificaciones")
 	public ModelAndView planificaciones() {
-			
+		
+		
+		
 		List<Planificacion> lista = servicioPlanificacion.consultarPlanificaciones();
-		ModelMap modelo = new ModelMap();	
+		ModelMap modelo = new ModelMap();
+		
 		modelo.put("lista", lista);
 		
 		return new ModelAndView("consultarPlanificaciones",modelo);
 	}
+	
+	@RequestMapping("/crear-planificacion")
+	public ModelAndView ModelMap() {
+		
+	ModelMap modelo = new ModelMap();
+	
+	return new ModelAndView("formularioCreaPlanificacion", modelo);
+	}
+	
+	
+
 }

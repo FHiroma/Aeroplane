@@ -1,5 +1,8 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,18 +15,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.PlanificacionTripulante;
+import ar.edu.unlam.tallerweb1.modelo.Tripulacion;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPlanificacionTripulante;
+import ar.edu.unlam.tallerweb1.servicios.ServicioTripulacion;
 
 @Controller
 public class ControladorPlanificacionTripulacion {
 
 	@Inject
 	private ServicioPlanificacionTripulante servicioPlanificacionTripulante;
-	
+	@Inject
+	private ServicioTripulacion servicioTripulacion;
 	
 	@RequestMapping("/formularioCarga")
-	public ModelAndView cargarTripulante(){
-		ModelMap modelo= new ModelMap();
+	public ModelAndView cargarTripulante( ){
+		ModelMap modelo= new ModelMap();	
 		return new ModelAndView("formularioCarga",modelo);
 	}
 
@@ -37,4 +43,18 @@ public class ControladorPlanificacionTripulacion {
 		modelo.put("PT", PT);
 		return new ModelAndView("tripulanteCargado",modelo);
 	}
+	
+	@RequestMapping("/consultarTripulacionDeVuelo")
+	public ModelAndView agregar(@RequestParam ("idPlanificacion") long idPlanificacion ){
+		ModelMap modelo= new ModelMap();
+		List<Tripulacion> lista = servicioTripulacion.consultarTripulaciones();
+		
+		modelo.put("lista", lista);
+		
+		
+		
+		return new ModelAndView("formularioCarga",modelo);
+	}
+	
+
 }
