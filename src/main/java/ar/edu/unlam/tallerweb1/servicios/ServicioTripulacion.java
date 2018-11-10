@@ -8,5 +8,5 @@ import ar.edu.unlam.tallerweb1.modelo.*;
 public interface ServicioTripulacion {
 	
 	List<Tripulacion> consultarTripulaciones();
-
+	List<PlanificacionTripulante> consultarTripulantesDeUnVuelo(long idPlan);
 }

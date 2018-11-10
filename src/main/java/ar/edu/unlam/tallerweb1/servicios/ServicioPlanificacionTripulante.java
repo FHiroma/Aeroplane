@@ -7,6 +7,6 @@ import ar.edu.unlam.tallerweb1.modelo.Tripulacion;
 public interface ServicioPlanificacionTripulante {
 
 	Planificacion agregarPlan(Long idPlan);
-	Tripulacion agregarTripulante(String nombre);
+	Tripulacion agregarTripulante(long idTripulante);
 	void guardar(PlanificacionTripulante PT);
 }

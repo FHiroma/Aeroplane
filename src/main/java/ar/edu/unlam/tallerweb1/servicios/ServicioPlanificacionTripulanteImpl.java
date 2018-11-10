@@ -22,8 +22,8 @@ public class ServicioPlanificacionTripulanteImpl implements ServicioPlanificacio
 		return servicioPlanificacionTripulanteDAO.agregarPlan(idPlan);
 	}
 	@Override
-	public Tripulacion agregarTripulante(String nombre){
-		return servicioPlanificacionTripulanteDAO.agregarTripulante(nombre);
+	public Tripulacion agregarTripulante(long idTripulante){
+		return servicioPlanificacionTripulanteDAO.agregarTripulante(idTripulante);
 	}
 	@Override
 	public void guardar(PlanificacionTripulante PT) {

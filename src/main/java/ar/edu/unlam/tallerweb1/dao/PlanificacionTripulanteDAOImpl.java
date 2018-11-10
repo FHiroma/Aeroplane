@@ -26,10 +26,10 @@ public class PlanificacionTripulanteDAOImpl implements PlanificacionTripulanteDA
 		.uniqueResult();
 	}
 	@Override
-	public Tripulacion agregarTripulante(String nombre){
+	public Tripulacion agregarTripulante(long idTripulante){
 		final Session session = sessionFactory.getCurrentSession();
 		return (Tripulacion) session.createCriteria(Tripulacion.class)
-		.add(Restrictions.like("nombre", nombre))
+		.add(Restrictions.like("idTripulacion",idTripulante))
 		.uniqueResult();
 	}
 	@Override

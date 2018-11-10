@@ -18,6 +18,42 @@ public class Planificacion {
 	private Integer fechaYHorarioDeArribo;
 	@ManyToOne
 	private Vuelo idVuelo;
+	public Tripulacion getJefeDeCabina() {
+		return jefeDeCabina;
+	}
+
+	public void setJefeDeCabina(Tripulacion jefeDeCabina) {
+		this.jefeDeCabina = jefeDeCabina;
+	}
+
+	public Tripulacion getTripulante2() {
+		return tripulante2;
+	}
+
+	public void setTripulante2(Tripulacion tripulante2) {
+		this.tripulante2 = tripulante2;
+	}
+
+	public Tripulacion getTripulante3() {
+		return tripulante3;
+	}
+
+	public void setTripulante3(Tripulacion tripulante3) {
+		this.tripulante3 = tripulante3;
+	}
+
+	public Tripulacion getTripulante4() {
+		return tripulante4;
+	}
+
+	public void setTripulante4(Tripulacion tripulante4) {
+		this.tripulante4 = tripulante4;
+	}
+
+	private Tripulacion jefeDeCabina;
+	private Tripulacion tripulante2;
+	private Tripulacion tripulante3;
+	private Tripulacion tripulante4;
 
 	
 

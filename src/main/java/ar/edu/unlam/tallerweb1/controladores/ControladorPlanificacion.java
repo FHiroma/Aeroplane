@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -33,14 +34,9 @@ private ServicioPlanificacion servicioPlanificacion;
 	
 	@RequestMapping("/consultarPlanificaciones")
 	public ModelAndView planificaciones() {
-		
-		
-		
 		List<Planificacion> lista = servicioPlanificacion.consultarPlanificaciones();
 		ModelMap modelo = new ModelMap();
-		
 		modelo.put("lista", lista);
-		
 		return new ModelAndView("consultarPlanificaciones",modelo);
 	}
 	

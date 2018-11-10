@@ -10,13 +10,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="tripulanteCargado" method="GET">
+	<form action="tripulanteCargado" method="POST">
 		    	<h3 class="form-signin-heading">Tripulante y Vuelo</h3>	
 				<hr class="colorgraph"><br>
-				<input name="numeroPlanificacion"  type="number" class="form-control" />	
+				<input name="numeroPlanificacion"  type="hidden" class="form-control" value="${idPlan}"/>	
 				<select name="nombreTripulante">
 				<c:forEach items="${listaTripulante}" var="items">
-				<option value="${items.nombre}">${items.nombre}</option>
+				<option value="${items.idTripulacion}">${items.nombre}</option>
 				</c:forEach>
 				</select> 
 				<button class="btn btn-lg btn-primary btn-block" Type="Submit"/>Cargar</button>	
