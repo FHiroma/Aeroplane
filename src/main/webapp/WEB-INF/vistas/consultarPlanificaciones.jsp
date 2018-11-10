@@ -1,4 +1,3 @@
-Mi unidad
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
@@ -18,39 +17,48 @@ Mi unidad
 <div class="container section center">
 <h1 class="red-text center">Planificaciones</h1>
 
-<form:form action="#!">
-<input type="text" class="datepicker">
-<button type="submit" name="enviar">enviar</button>
-</form:form>
-
-	<c:forEach items="${lista}" var="items">
+	
 
     	 <table class="center-align">
         <thead>
           <tr>
-              <th class="center">ID Planificación</th>
-              <th class="center">Número De Vuelo</th>
               <th class="center">Fecha Inicio</th>
               <th class="center">Fecha Arribo</th>
+              <th class="center">Jefe de Cabina</th>
+              <th class="center">Tripulante I</th>
+              <th class="center">Tripulante II</th>
+              <th class="center">Tripulante III</th>
               <th class="center"></th>
           </tr>
         </thead>
+        <c:forEach items="${lista}" var="items">
         <tbody>
           <tr>
-            <td class="center">${items.idPlanificacion}</td>
             <td class="center">${items.fechaYHorarioDeInicio}</td>
             <td class="center">${items.fechaYHorarioDeArribo}</td>
-            <td class="center">${items.numeroDeVuelo}</td>
-            
+
+            <td class="center"><a href="formularioCarga">
+            <i class=" material-icons md-8 green-text">add_circle_outline</i>
+            </a></td>
+ 
+            <td class="center"><a href="formularioCarga">
+            <i class=" material-icons md-8 green-text">add_circle_outline</i>
+            </a></td>
+          
             <td class="center"><a href="formularioCarga">
             <i class=" material-icons md-8 green-text">add_circle_outline</i>
             </a></td>
             
+            <td class="center"><a href="formularioCarga">
+            <i class=" material-icons md-8 green-text">add_circle_outline</i>
+            </a></td>            
+            
           </tr>
         </tbody>
+        </c:forEach>
       </table>
     	
-	</c:forEach>
+	
 </div>
 	
 <script>
