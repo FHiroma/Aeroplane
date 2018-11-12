@@ -49,10 +49,13 @@ public class Planificacion {
 	public void setTripulante4(Tripulacion tripulante4) {
 		this.tripulante4 = tripulante4;
 	}
-
+	@ManyToOne
 	private Tripulacion jefeDeCabina;
+	@ManyToOne
 	private Tripulacion tripulante2;
+	@ManyToOne
 	private Tripulacion tripulante3;
+	@ManyToOne
 	private Tripulacion tripulante4;
 
 	

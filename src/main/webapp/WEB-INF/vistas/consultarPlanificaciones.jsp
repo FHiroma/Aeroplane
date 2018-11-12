@@ -36,23 +36,38 @@
           <tr>
             <td class="center">${items.fechaYHorarioDeInicio}</td>
             <td class="center">${items.fechaYHorarioDeArribo}</td>
-
-            <td class="center"><a href="formularioCarga">
+			<c:if test="${items.jefeDeCabina ne null}">
+			<td class="center">${items.jefeDeCabina.nombre}</td>
+			</c:if>
+			<c:if test="${items.jefeDeCabina eq null}">
+            <td class="center"><a href="formularioCarga?Plan=${items.idPlanificacion}&Posicion=1">
             <i class=" material-icons md-8 green-text">add_circle_outline</i>
             </a></td>
- 
-            <td class="center"><a href="formularioCarga">
+ 			</c:if>
+			<c:if test="${items.tripulante2 ne null}">
+			<td class="center">${items.tripulante2.nombre}</td>
+			</c:if>
+			<c:if test="${items.tripulante2 eq null}">
+            <td class="center"><a href="formularioCarga?Plan=${items.idPlanificacion}&Posicion=2">
             <i class=" material-icons md-8 green-text">add_circle_outline</i>
             </a></td>
-          
-            <td class="center"><a href="formularioCarga">
+          	</c:if>
+          	<c:if test="${items.tripulante3 ne null}">
+          	<td class="center">${items.tripulante3.nombre}</td>
+          	</c:if>
+          	<c:if test="${items.tripulante3 eq null}">
+            <td class="center"><a href="formularioCarga?Plan=${items.idPlanificacion}&Posicion=3">
             <i class=" material-icons md-8 green-text">add_circle_outline</i>
             </a></td>
-            
-            <td class="center"><a href="formularioCarga">
+            </c:if>
+            <c:if test="${items.tripulante4 ne null}">
+            <td class="center">${items.tripulante4.nombre}</td>
+            </c:if>
+            <c:if test="${items.tripulante4 eq null}">
+            <td class="center"><a href="formularioCarga?Plan=${items.idPlanificacion}&Posicion=4">
             <i class=" material-icons md-8 green-text">add_circle_outline</i>
             </a></td>            
-            
+            </c:if>
           </tr>
         </tbody>
         </c:forEach>

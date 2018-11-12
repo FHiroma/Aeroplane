@@ -31,11 +31,12 @@ public class ControladorPlanificacionTripulacion {
 	private ServicioPlanificacion servicioPlanificacion;
 	
 	@RequestMapping("/formularioCarga")
-	public ModelAndView cargarTripulante(@RequestParam ("Plan") long idPlan){
+	public ModelAndView cargarTripulante(@RequestParam ("Plan") long idPlan,@RequestParam ("Posicion") Integer posicion){
 		ModelMap modelo= new ModelMap();
 		List<Tripulacion> lista = servicioTripulacion.consultarTripulaciones();
 		modelo.put("idPlan", idPlan);
 		modelo.put("listaTripulante", lista);
+		modelo.put("posicion", posicion);
 		return new ModelAndView("formularioCarga",modelo);
 	}
 
@@ -48,7 +49,6 @@ public class ControladorPlanificacionTripulacion {
 		PT.setIdTripulacion(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
 		servicioPlanificacionTripulante.guardar(PT);
 		servicioPlanificacion.guardarTripulante(numeroPlanificacion,posicion,servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
-		modelo.put("PT", PT);
-		return new ModelAndView("tripulanteCargado",modelo);
+		return new ModelAndView("redirect:/consultarPlanificaciones");
 	}
 }

@@ -14,6 +14,7 @@
 		    	<h3 class="form-signin-heading">Tripulante y Vuelo</h3>	
 				<hr class="colorgraph"><br>
 				<input name="numeroPlanificacion"  type="hidden" class="form-control" value="${idPlan}"/>	
+				<input name="posicion"  type="hidden" class="form-control" value="${posicion}"/>	
 				<select name="nombreTripulante">
 				<c:forEach items="${listaTripulante}" var="items">
 				<option value="${items.idTripulacion}">${items.nombre}</option>
