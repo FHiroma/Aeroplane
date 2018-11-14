@@ -49,6 +49,7 @@ public class ControladorPlanificacionTripulacion {
 		PT.setIdTripulacion(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
 		servicioPlanificacionTripulante.guardar(PT);
 		servicioPlanificacion.guardarTripulante(numeroPlanificacion,posicion,servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
+		servicioTripulacion.verificarTiempoVuelo(nombreTripulante);
 		return new ModelAndView("redirect:/consultarPlanificaciones");
 	}
 }

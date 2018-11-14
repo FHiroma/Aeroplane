@@ -11,5 +11,7 @@ public interface TripulacionDAO {
 	List<Tripulacion> consultarTripulaciones();
 
 	List<PlanificacionTripulante> consultarTripulanteDeUnVuelo(long idPlan);
+	
+	Boolean verificarTiempoDeVuelo(long idTripulacion);
 
 }

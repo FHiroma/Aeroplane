@@ -13,7 +13,6 @@ public class Planificacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPlanificacion;
-	private Integer numeroDeVuelo;
 	private Integer fechaYHorarioDeInicio;
 	private Integer fechaYHorarioDeArribo;
 	@ManyToOne
@@ -58,22 +57,12 @@ public class Planificacion {
 	@ManyToOne
 	private Tripulacion tripulante4;
 
-	
-
 	public Long getIdPlanificacion() {
 		return idPlanificacion;
 	}
 
 	public void setIdPlanificacion(Long idPlanificacion) {
 		this.idPlanificacion = idPlanificacion;
-	}
-
-	public Integer getNumeroDeVuelo() {
-		return numeroDeVuelo;
-	}
-
-	public void setNumeroDeVuelo(Integer numeroDeVuelo) {
-		this.numeroDeVuelo = numeroDeVuelo;
 	}
 
 	public Integer getFechaYHorarioDeInicio() {
@@ -98,8 +87,9 @@ public class Planificacion {
 
 	public void setIdVuelo(Vuelo idVuelo) {
 		this.idVuelo = idVuelo;
-	}
-
-
+	}	
 	
+	public Integer TiempoVuelo() {
+		return this.fechaYHorarioDeArribo-this.fechaYHorarioDeInicio;
+	}
 }

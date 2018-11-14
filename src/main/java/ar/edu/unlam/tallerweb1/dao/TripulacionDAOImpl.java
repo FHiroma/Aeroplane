@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import ar.edu.unlam.tallerweb1.modelo.Planificacion;
 import ar.edu.unlam.tallerweb1.modelo.PlanificacionTripulante;
 import ar.edu.unlam.tallerweb1.modelo.Tripulacion;
 @Repository("TripulacionDAO")
@@ -31,6 +32,17 @@ public class TripulacionDAOImpl implements TripulacionDAO{
         		.list();
                 return list;
 	}
+	@Override
+	public Boolean verificarTiempoDeVuelo(long idTripulacion) {
+		final Session session = sesion.getCurrentSession();
+		Integer TV=session.createCriteria(PlanificacionTripulacion.class)
+				.add(Restrictions.eq("idTripulacion",idTripulacion)
+				.
+	
+		return null;
+	}
+	
+	
 	
 
 	

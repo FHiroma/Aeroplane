@@ -9,4 +9,5 @@ public interface ServicioTripulacion {
 	
 	List<Tripulacion> consultarTripulaciones();
 	List<PlanificacionTripulante> consultarTripulantesDeUnVuelo(long idPlan);
+	Boolean verificarTiempoDeVuelo(long idTripulacion);
 }

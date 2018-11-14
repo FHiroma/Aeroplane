@@ -30,4 +30,11 @@ public class ServicioTripulacionImpl implements ServicioTripulacion{
 	public List<PlanificacionTripulante> consultarTripulantesDeUnVuelo(long idPlan) {
 		return servicioTripulacionDAO.consultarTripulanteDeUnVuelo(idPlan);
 	}
+
+	@Override
+	public Boolean verificarTiempoDeVuelo(long idTripulacion) {
+		return servicioTripulacionDAO.verificarTiempoDeVuelo(idTripulacion);
+	}
+	
+	
 }
