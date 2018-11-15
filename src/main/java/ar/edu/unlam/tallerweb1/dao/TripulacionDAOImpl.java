@@ -33,14 +33,26 @@ public class TripulacionDAOImpl implements TripulacionDAO{
                 return list;
 	}
 	@Override
-	public Boolean verificarTiempoDeVuelo(long idTripulacion) {
+	public List<Planificacion> traerVuelosDeUnTripulante(Tripulacion nombreTripulante) {
 		final Session session = sesion.getCurrentSession();
-		Integer TV=session.createCriteria(PlanificacionTripulacion.class)
-				.add(Restrictions.eq("idTripulacion",idTripulacion)
-				.
-	
-		return null;
+        List<PlanificacionTripulante> list = session.createCriteria(PlanificacionTripulante.class)
+        		.add(Restrictions.eq("idTripulacion",nombreTripulante))
+        		.list();
+        List<Planificacion> lista = new ArrayList<Planificacion>();
+        for(int i = 0; i < list.size(); i++){
+        	lista.add(list.get(i).getIdPlanificacion());
+        }
+        return lista;
 	}
+	@Override
+	public Integer calcularTV(List<Planificacion> lista) {
+		Integer TV = 0;
+		for(int i = 0; i < lista.size(); i++){
+	        	TV += lista.get(i).TiempoVuelo();
+	       }
+		return TV;
+	}
+	
 	
 	
 	

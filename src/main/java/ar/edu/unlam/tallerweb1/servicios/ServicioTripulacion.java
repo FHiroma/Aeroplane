@@ -9,5 +9,6 @@ public interface ServicioTripulacion {
 	
 	List<Tripulacion> consultarTripulaciones();
 	List<PlanificacionTripulante> consultarTripulantesDeUnVuelo(long idPlan);
-	Boolean verificarTiempoDeVuelo(long idTripulacion);
+	List<Planificacion> traerVuelosDeUnTripulante(Tripulacion nombreTripulante);
+	Integer calcularTV(List<Planificacion> lista);
 }

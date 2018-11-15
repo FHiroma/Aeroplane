@@ -32,9 +32,13 @@ public class ServicioTripulacionImpl implements ServicioTripulacion{
 	}
 
 	@Override
-	public Boolean verificarTiempoDeVuelo(long idTripulacion) {
-		return servicioTripulacionDAO.verificarTiempoDeVuelo(idTripulacion);
+	public List<Planificacion> traerVuelosDeUnTripulante(Tripulacion nombreTripulante) {
+		return servicioTripulacionDAO.traerVuelosDeUnTripulante(nombreTripulante);
 	}
-	
+
+	@Override
+	public Integer calcularTV(List<Planificacion> lista) {
+		return servicioTripulacionDAO.calcularTV(lista);
+	}
 	
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.Planificacion;
 import ar.edu.unlam.tallerweb1.modelo.PlanificacionTripulante;
 import ar.edu.unlam.tallerweb1.modelo.Tripulacion;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPlanificacion;
@@ -47,9 +48,10 @@ public class ControladorPlanificacionTripulacion {
 		PlanificacionTripulante PT = new PlanificacionTripulante();
 		PT.setIdPlanificacion(servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
 		PT.setIdTripulacion(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
+		List<Planificacion>lista =servicioTripulacion.traerVuelosDeUnTripulante(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
+		System.out.println(servicioTripulacion.calcularTV(lista));
 		servicioPlanificacionTripulante.guardar(PT);
 		servicioPlanificacion.guardarTripulante(numeroPlanificacion,posicion,servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
-		servicioTripulacion.verificarTiempoVuelo(nombreTripulante);
 		return new ModelAndView("redirect:/consultarPlanificaciones");
 	}
 }
