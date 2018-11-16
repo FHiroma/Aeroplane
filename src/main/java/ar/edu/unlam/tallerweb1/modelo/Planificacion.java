@@ -92,4 +92,9 @@ public class Planificacion {
 	public Integer TiempoVuelo() {
 		return this.fechaYHorarioDeArribo-this.fechaYHorarioDeInicio;
 	}
+	
+	public Integer TiempoServicioVuelo() {
+		return this.fechaYHorarioDeArribo-this.fechaYHorarioDeInicio+150;
+	}	
+	
 }

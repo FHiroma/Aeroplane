@@ -16,9 +16,9 @@
 
 <div class="container section center">
 <h1 class="red-text center">Planificaciones</h1>
-
-	
-
+		<c:if test="${not empty Error}">
+		<h4>${Error}</h4>
+		</c:if>
     	 <table class="center-align">
         <thead>
           <tr>

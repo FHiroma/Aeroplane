@@ -37,8 +37,45 @@ public class ServicioTripulacionImpl implements ServicioTripulacion{
 	}
 
 	@Override
+	//deberia de cambiarlo para que calcule aquellas en las ultimas 24 horas.
 	public Integer calcularTV(List<Planificacion> lista) {
-		return servicioTripulacionDAO.calcularTV(lista);
+		Integer TV = 0;
+		for(int i = 0; i < lista.size(); i++){
+	        	TV += lista.get(i).TiempoVuelo();
+	       }
+		return TV;
+	}
+
+	@Override
+	public Boolean verificarTVUnDia(Integer tv) {
+		if(tv<800){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public Integer calcularTS(List<Planificacion> lista) {
+		Integer TV = 0;
+		for(int i = 0; i < lista.size(); i++){
+	        	TV += lista.get(i).TiempoServicioVuelo();
+	       }
+		return TV;
+	} 
+	
+
+	@Override
+	public Boolean verificarTSPorVuelo(Integer tv) {
+	    
+		if(tv<1300){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void guardarTripulante(Tripulacion tripulante) {
+		servicioTripulacionDAO.guardarTripulante(tripulante);
 	}
 	
 }

@@ -48,8 +48,28 @@ public class ControladorPlanificacionTripulacion {
 		PlanificacionTripulante PT = new PlanificacionTripulante();
 		PT.setIdPlanificacion(servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
 		PT.setIdTripulacion(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
-		List<Planificacion>lista =servicioTripulacion.traerVuelosDeUnTripulante(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
-		System.out.println(servicioTripulacion.calcularTV(lista));
+		List<Planificacion>listaDeVuelos =servicioTripulacion
+		.traerVuelosDeUnTripulante(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
+		
+		Integer TV1=servicioTripulacion.calcularTV(listaDeVuelos);
+		Boolean validacion = servicioTripulacion.verificarTVUnDia(TV1);
+		
+		if(validacion == false){
+			modelo.put("Error", "El tripulante no puede ser cargado porque supera las 8 horas.");
+			List<Planificacion> lista = servicioPlanificacion.consultarPlanificaciones();
+			modelo.put("lista", lista);
+			return new ModelAndView("consultarPlanificaciones",modelo);
+		}
+		
+		Integer TS1=servicioTripulacion.calcularTS(listaDeVuelos);
+		Boolean validacionTS  = servicioTripulacion.verificarTSPorVuelo(TS1);
+		if(validacionTS == false){
+			modelo.put("Error", "El tripulante no puede ser cargado porque supera las 13 horas.");
+			List<Planificacion> lista = servicioPlanificacion.consultarPlanificaciones();
+			modelo.put("lista", lista);
+			return new ModelAndView("consultarPlanificaciones",modelo);
+		}
+		
 		servicioPlanificacionTripulante.guardar(PT);
 		servicioPlanificacion.guardarTripulante(numeroPlanificacion,posicion,servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
 		return new ModelAndView("redirect:/consultarPlanificaciones");

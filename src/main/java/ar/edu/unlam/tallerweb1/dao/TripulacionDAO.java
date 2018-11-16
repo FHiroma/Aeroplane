@@ -15,6 +15,6 @@ public interface TripulacionDAO {
 
 	List<Planificacion> traerVuelosDeUnTripulante(Tripulacion nombreTripulante);
 
-	Integer calcularTV(List<Planificacion> lista);
+	void guardarTripulante(Tripulacion tripulante);
 
 }

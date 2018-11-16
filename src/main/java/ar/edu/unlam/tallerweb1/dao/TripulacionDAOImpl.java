@@ -44,19 +44,13 @@ public class TripulacionDAOImpl implements TripulacionDAO{
         }
         return lista;
 	}
-	@Override
-	public Integer calcularTV(List<Planificacion> lista) {
-		Integer TV = 0;
-		for(int i = 0; i < lista.size(); i++){
-	        	TV += lista.get(i).TiempoVuelo();
-	       }
-		return TV;
-	}
-	
-	
 	
 	
 
-	
+	@Override
+	public void guardarTripulante(Tripulacion tripulante) {
+		final Session session = sesion.getCurrentSession();
+		session.save(tripulante);
+	}
 
 }
