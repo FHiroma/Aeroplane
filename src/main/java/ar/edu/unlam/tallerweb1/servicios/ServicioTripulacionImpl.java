@@ -53,29 +53,5 @@ public class ServicioTripulacionImpl implements ServicioTripulacion{
 		}
 		return false;
 	}
-
-	@Override
-	public Integer calcularTS(List<Planificacion> lista) {
-		Integer TV = 0;
-		for(int i = 0; i < lista.size(); i++){
-	        	TV += lista.get(i).TiempoServicioVuelo();
-	       }
-		return TV;
-	} 
-	
-
-	@Override
-	public Boolean verificarTSPorVuelo(Integer tv) {
-	    
-		if(tv<1300){
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public void guardarTripulante(Tripulacion tripulante) {
-		servicioTripulacionDAO.guardarTripulante(tripulante);
-	}
 	
 }

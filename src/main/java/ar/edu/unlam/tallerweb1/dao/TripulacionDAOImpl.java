@@ -46,11 +46,9 @@ public class TripulacionDAOImpl implements TripulacionDAO{
 	}
 	
 	
+	
+	
 
-	@Override
-	public void guardarTripulante(Tripulacion tripulante) {
-		final Session session = sesion.getCurrentSession();
-		session.save(tripulante);
-	}
+	
 
 }

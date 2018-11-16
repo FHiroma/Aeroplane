@@ -10,12 +10,6 @@ public interface ServicioTripulacion {
 	List<Tripulacion> consultarTripulaciones();
 	List<PlanificacionTripulante> consultarTripulantesDeUnVuelo(long idPlan);
 	List<Planificacion> traerVuelosDeUnTripulante(Tripulacion nombreTripulante);
-	
 	Integer calcularTV(List<Planificacion> lista);
 	Boolean verificarTVUnDia(Integer tv);
-	
-	Integer calcularTS(List<Planificacion> lista);
-	Boolean verificarTSPorVuelo(Integer ts);
-	
-	void guardarTripulante(Tripulacion tripulante);
 }
