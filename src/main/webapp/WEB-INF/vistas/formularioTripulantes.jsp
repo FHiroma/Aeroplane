@@ -15,7 +15,7 @@
 </head>
 <body>
 
-		<form:form action="formularioTripulante" method="POST" modelAttribute="tripulante">
+		<form:form action="/formularioTripulante" method="POST" modelAttribute="tripulante">
 		
 		<form:input path="jefeDeCabina" type="checkbox" />
 		
