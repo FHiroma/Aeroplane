@@ -53,5 +53,11 @@ public class ServicioTripulacionImpl implements ServicioTripulacion{
 		}
 		return false;
 	}
+
+	@Override
+	public void guardarTripulante(Tripulacion tripulante) {
+		servicioTripulacionDAO.guardarTripulante(tripulante);
+		
+	}
 	
 }

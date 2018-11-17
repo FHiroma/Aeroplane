@@ -18,7 +18,7 @@ public class ControladorTripulacion {
 	private ServicioTripulacion servicioTripulacion;
 	
 	
-	@RequestMapping("/crearTripulante")
+	@RequestMapping(path = "/crearTripulante")
 	public ModelAndView crearTripulante() {
 		
 		ModelMap modelo = new ModelMap();		
