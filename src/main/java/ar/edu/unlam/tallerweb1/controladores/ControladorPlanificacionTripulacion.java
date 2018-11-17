@@ -49,7 +49,7 @@ public class ControladorPlanificacionTripulacion {
 		PT.setIdPlanificacion(servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
 		PT.setIdTripulacion(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
 		List<Planificacion>listaDeVuelos =servicioTripulacion.traerVuelosDeUnTripulante(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
-		Integer TV1=servicioTripulacion.calcularTV(listaDeVuelos);
+		Integer TV1=servicioTripulacion.calcularTV(listaDeVuelos,servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
 		Boolean validacion = servicioTripulacion.verificarTVUnDia(TV1);
 		if(validacion == false){
 			modelo.put("Error", "El tripulante no puede ser cargado porque supera las 8 horas.");

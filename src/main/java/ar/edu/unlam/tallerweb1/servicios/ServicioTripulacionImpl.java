@@ -38,8 +38,8 @@ public class ServicioTripulacionImpl implements ServicioTripulacion{
 
 	@Override
 	//deberia de cambiarlo para que calcule aquellas en las ultimas 24 horas.
-	public Integer calcularTV(List<Planificacion> lista) {
-		Integer TV = 0;
+	public Integer calcularTV(List<Planificacion> lista, Planificacion PlanActual) {
+		Integer TV = PlanActual.TiempoVuelo();
 		for(int i = 0; i < lista.size(); i++){
 	        	TV += lista.get(i).TiempoVuelo();
 	       }
@@ -48,7 +48,7 @@ public class ServicioTripulacionImpl implements ServicioTripulacion{
 
 	@Override
 	public Boolean verificarTVUnDia(Integer tv) {
-		if(tv<800){
+		if(tv<=800){
 			return true;
 		}
 		return false;
