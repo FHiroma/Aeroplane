@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +25,9 @@ public class PlanificacionDAOImpl implements PlanificacionDAO{
 		final Session session = sesion.getCurrentSession();
 		List<Planificacion> list = (List<Planificacion>) 
 				session.createCriteria(Planificacion.class)
-			    .list();
+				.addOrder(Order.asc("fechaYHorarioDeInicio"))
+				.addOrder(Order.asc("fechaYHorarioDeArribo"))
+				.list();
 				return list;
 	}
 

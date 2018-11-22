@@ -11,7 +11,7 @@
 </head>
 <body>
 
-		<form:form action="/formularioTripulante" method="POST" modelAttribute="tripulante">
+		<form:form action="formularioTripulante" method="POST" modelAttribute="tripulante">
 		 
 		  	<tr>
 				<td>Jefe de cabina </td>

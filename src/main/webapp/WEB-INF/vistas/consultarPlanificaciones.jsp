@@ -15,9 +15,9 @@
 
 
 <div class="container section center">
-<h1 class="red-text center">Planificaciones</h1>
+<h1 class="blue-text center">Planificaciones</h1>
 		<c:if test="${not empty Error}">
-		<h4>${Error}</h4>
+		<h4 class="error red-text">${Error}</h4>
 		</c:if>
     	 <table class="center-align">
         <thead>
@@ -78,13 +78,6 @@
 	
 <script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</script>
-
-<script>	
-		document.addEventListener('DOMContentLoaded', function() {
-	    var elems = document.querySelectorAll('.datepicker');
-    	var instances = M.Datepicker.init(elems);
- 		 });
 </script>
 
 </body>

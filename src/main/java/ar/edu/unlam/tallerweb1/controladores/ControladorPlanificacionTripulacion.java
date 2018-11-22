@@ -49,10 +49,14 @@ public class ControladorPlanificacionTripulacion {
 		PT.setIdPlanificacion(servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
 		PT.setIdTripulacion(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
 		List<Planificacion>listaDeVuelos =servicioTripulacion.traerVuelosDeUnTripulante(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
-		Integer TV1=servicioTripulacion.calcularTV(listaDeVuelos,servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
-		Boolean validacion = servicioTripulacion.verificarTVUnDia(TV1);
-		if(validacion == false){
-			modelo.put("Error", "El tripulante no puede ser cargado porque supera las 8 horas.");
+		Long TV1=servicioTripulacion.calcularTV(listaDeVuelos,servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
+		System.out.println(TV1);
+		String validacion = servicioTripulacion.verificarTVUnDia(TV1);
+		Long TSV=servicioTripulacion.calcularTSV(listaDeVuelos, servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
+		System.out.println(TSV);
+		validacion += servicioTripulacion.verificarTSVUnDia(TSV);
+		if(!(validacion.isEmpty())){
+			modelo.put("Error", validacion);
 			List<Planificacion> lista = servicioPlanificacion.consultarPlanificaciones();
 			modelo.put("lista", lista);
 			return new ModelAndView("consultarPlanificaciones",modelo);

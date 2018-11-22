@@ -1,20 +1,22 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
 @Entity
 public class Planificacion {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPlanificacion;
-	private Integer fechaYHorarioDeInicio;
-	private Integer fechaYHorarioDeArribo;
+	private Date fechaYHorarioDeInicio;
+	private Date fechaYHorarioDeArribo;
 	@ManyToOne
 	private Vuelo idVuelo;
 	public Tripulacion getJefeDeCabina() {
@@ -65,22 +67,6 @@ public class Planificacion {
 		this.idPlanificacion = idPlanificacion;
 	}
 
-	public Integer getFechaYHorarioDeInicio() {
-		return fechaYHorarioDeInicio;
-	}
-
-	public void setFechaYHorarioDeInicio(Integer fechaYHorarioDeInicio) {
-		this.fechaYHorarioDeInicio = fechaYHorarioDeInicio;
-	}
-
-	public Integer getFechaYHorarioDeArribo() {
-		return fechaYHorarioDeArribo;
-	}
-
-	public void setFechaYHorarioDeArribo(Integer fechaYHorarioDeArribo) {
-		this.fechaYHorarioDeArribo = fechaYHorarioDeArribo;
-	}
-
 	public Vuelo getIdVuelo() {
 		return idVuelo;
 	}
@@ -89,12 +75,35 @@ public class Planificacion {
 		this.idVuelo = idVuelo;
 	}	
 	
-	public Integer TiempoVuelo() {
-		return this.fechaYHorarioDeArribo-this.fechaYHorarioDeInicio;
+	public Date getFechaYHorarioDeInicio() {
+		return fechaYHorarioDeInicio;
 	}
 	
-	public Integer TiempoServicioVuelo() {
-		return this.fechaYHorarioDeArribo-this.fechaYHorarioDeInicio+150;
-	}	
+	public Date getFechaYHorarioDeArribo() {
+		return fechaYHorarioDeArribo;
+	}
+
+	public void setFechaYHorarioDeInicio(Date fechaYHorarioDeInicio) {
+		this.fechaYHorarioDeInicio = fechaYHorarioDeInicio;
+	}
+	
+	public void setFechaYHorarioDeArribo(Date fechaYHorarioDeArribo) {
+		this.fechaYHorarioDeArribo = fechaYHorarioDeArribo;
+	}
+	@SuppressWarnings("static-access")
+	public long TiempoVuelo() {
+	    long diferenciaEnMiliseg= 
+	    this.fechaYHorarioDeArribo.getTime() - this.fechaYHorarioDeInicio.getTime();
+	    TimeUnit timeUnit = null;
+	    return timeUnit.MINUTES.convert(diferenciaEnMiliseg,TimeUnit.MILLISECONDS);
+	}
+	@SuppressWarnings("static-access")
+	public long TiempoServicioVuelo() {
+	    long diferenciaEnMiliseg= 
+	    this.fechaYHorarioDeArribo.getTime() - this.fechaYHorarioDeInicio.getTime()+5400000;
+	    TimeUnit timeUnit = null;
+		return timeUnit.MINUTES.convert(diferenciaEnMiliseg,TimeUnit.MILLISECONDS);
+	}
+	
 	
 }

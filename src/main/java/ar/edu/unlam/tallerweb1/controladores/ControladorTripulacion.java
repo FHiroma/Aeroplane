@@ -35,8 +35,6 @@ public class ControladorTripulacion {
 		
 		ModelMap modelo = new ModelMap();
 		servicioTripulacion.guardarTripulante(tripulante);
-//		modelo.put("tripulante",tripulante);
-		
 		return new ModelAndView("mostrarTripulanteCargado",modelo);
 		
 	}
