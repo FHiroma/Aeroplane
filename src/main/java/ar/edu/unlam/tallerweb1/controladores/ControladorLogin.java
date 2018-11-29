@@ -36,6 +36,14 @@ public class ControladorLogin {
 		return new ModelAndView("login", modelo);
 	}
 
+	public ServicioLogin getServicioLogin() {
+		return servicioLogin;
+	}
+
+	public void setServicioLogin(ServicioLogin servicioLogin) {
+		this.servicioLogin = servicioLogin;
+	}
+
 	// Este metodo escucha la URL validar-login siempre y cuando se invoque con metodo http POST
 	// El método recibe un objeto Usuario el que tiene los datos ingresados en el form correspondiente y se corresponde con el modelAttribute definido en el
 	// tag form:form

@@ -31,6 +31,30 @@ public class ControladorPlanificacionTripulacion {
 	@Inject
 	private ServicioPlanificacion servicioPlanificacion;
 	
+	public ServicioPlanificacionTripulante getServicioPlanificacionTripulante() {
+		return servicioPlanificacionTripulante;
+	}
+
+	public void setServicioPlanificacionTripulante(ServicioPlanificacionTripulante servicioPlanificacionTripulante) {
+		this.servicioPlanificacionTripulante = servicioPlanificacionTripulante;
+	}
+
+	public ServicioTripulacion getServicioTripulacion() {
+		return servicioTripulacion;
+	}
+
+	public void setServicioTripulacion(ServicioTripulacion servicioTripulacion) {
+		this.servicioTripulacion = servicioTripulacion;
+	}
+
+	public ServicioPlanificacion getServicioPlanificacion() {
+		return servicioPlanificacion;
+	}
+
+	public void setServicioPlanificacion(ServicioPlanificacion servicioPlanificacion) {
+		this.servicioPlanificacion = servicioPlanificacion;
+	}
+
 	@RequestMapping("/formularioCarga")
 	public ModelAndView cargarTripulante(@RequestParam ("Plan") long idPlan,@RequestParam ("Posicion") Integer posicion){
 		ModelMap modelo= new ModelMap();
@@ -42,18 +66,16 @@ public class ControladorPlanificacionTripulacion {
 	}
 
 	@RequestMapping(path = "/tripulanteCargado", method = RequestMethod.POST)
-	public ModelAndView tripulanteCargado(@RequestParam ("numeroPlanificacion") long numeroPlanificacion,@RequestParam ("nombreTripulante") long nombreTripulante,
-			HttpServletRequest request,@RequestParam ("posicion") Integer posicion) {
+	public ModelAndView tripulanteCargado(@RequestParam ("numeroPlanificacion") long numeroPlanificacion,@RequestParam ("numeroTripulante") long numeroTripulante,
+			@RequestParam ("posicion") Integer posicion) {
 		ModelMap modelo = new ModelMap();
 		PlanificacionTripulante PT = new PlanificacionTripulante();
 		PT.setIdPlanificacion(servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
-		PT.setIdTripulacion(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
-		List<Planificacion>listaDeVuelos =servicioTripulacion.traerVuelosDeUnTripulante(servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
+		PT.setIdTripulacion(servicioPlanificacionTripulante.agregarTripulante(numeroTripulante));
+		List<Planificacion>listaDeVuelos =servicioTripulacion.traerVuelosDeUnTripulante(servicioPlanificacionTripulante.agregarTripulante(numeroTripulante));
 		Long TV1=servicioTripulacion.calcularTV(listaDeVuelos,servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
-		System.out.println(TV1);
 		String validacion = servicioTripulacion.verificarTVUnDia(TV1);
 		Long TSV=servicioTripulacion.calcularTSV(listaDeVuelos, servicioPlanificacionTripulante.agregarPlan(numeroPlanificacion));
-		System.out.println(TSV);
 		validacion += servicioTripulacion.verificarTSVUnDia(TSV);
 		if(!(validacion.isEmpty())){
 			modelo.put("Error", validacion);
@@ -62,7 +84,7 @@ public class ControladorPlanificacionTripulacion {
 			return new ModelAndView("consultarPlanificaciones",modelo);
 		}
 		servicioPlanificacionTripulante.guardar(PT);
-		servicioPlanificacion.guardarTripulante(numeroPlanificacion,posicion,servicioPlanificacionTripulante.agregarTripulante(nombreTripulante));
+		servicioPlanificacion.guardarTripulante(numeroPlanificacion,posicion,servicioPlanificacionTripulante.agregarTripulante(numeroTripulante));
 		return new ModelAndView("redirect:/consultarPlanificaciones");
 	}
 }
